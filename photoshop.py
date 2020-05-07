@@ -2,16 +2,16 @@ import mysql.connector
 class Photoshop:
 
     def query1(self,crsr):
-        crsr.execute('SELECT DISTINCT LoginName FROM transactions WHERE TotalAmount > 100')
+        crsr.execute('SELECT LoginName FROM transactions WHERE TotalAmount > 100')
         result = crsr.fetchall()
-        for i in result:
-            print(i) 
+        for r in result:
+            print(r[0])
 
     def query2(self,crsr):
         crsr.execute(''' SELECT PhotoID FROM photo WHERE TransID IS NULL OR TransID = '' ''')
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            print(r[0])
 
     def query3(self,crsr,model):
         crsr.execute('''SELECT LoginName FROM transactions WHERE TransID IN
@@ -22,14 +22,19 @@ class Photoshop:
         (SELECT PHOTOID FROM models WHERE MName != %s))
         ''',(model,model,))
         result = crsr.fetchall()
-        print(result)
+        if len(result) > 0:
+            for r in result[0]:
+                print(r)
+        else:
+            print('No customer bought all photos where ',model,' modeled.')
+        #print(result)
 
     def query4(self,crsr):
         crsr.execute('SELECT RPName FROM influences WHERE EPName IN (SELECT PName FROM photographer WHERE PNationality = "American")')
         result = crsr.fetchall()
-        result = list(dict.fromkeys(result))
-        for i in result:
-            print(i)
+        for r in result:
+            print(r[0])
+        #print(result)
 
     def query5(self,crsr):
         crsr.execute('''SELECT PName FROM photographer WHERE PName IN
@@ -38,47 +43,47 @@ class Photoshop:
         AND PName NOT IN (SELECT PName FROM photo WHERE PhotoID IN (SELECT PhotoID FROM landscape))
         ''')
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            print(r[0])
+        #print(result)
 
     def query6(self,crsr):
-        crsr.execute('''SELECT TransID FROM photo
-        WHERE (TransID IS NOT NULL)
+        crsr.execute('''SELECT TransID,COUNT(*) FROM photo
+        WHERE TransID IS NOT NULL
         GROUP BY TransID
-        HAVING COUNT(*)>=3
-        ''')
+        HAVING COUNT(*)>3
+        ORDER BY COUNT(*) DESC''')
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            print('TransID ',r[0],'contains ',r[1],' photos.')
 
-
-    def query7(self,crsr,photograhper):
+    def query7(self,crsr,photographer):
         crsr.execute('''SELECT DISTINCT MName FROM models WHERE PhotoID IN (SELECT PhotoID FROM photo WHERE PName=%s)
         AND PhotoID NOT IN (SELECT PhotoID FROM photo WHERE PName !=%s)
-        ''',(photograhper,photograhper,))
+        ''',(photographer,photographer,))
         result = crsr.fetchall()
-        for i in result:
-            print(i, "\n")
+        for r in result:
+            print(r[0], 'was photgraphed by',photographer)
 
     def query8(self,crsr):
-        crsr.execute('''SELECT DISTINCT PName,SUM(Price)
+        crsr.execute('''SELECT PName,SUM(Price)
         FROM photo
         GROUP BY PName
         ORDER BY SUM(Price) DESC
         ''')
         result = crsr.fetchall()
-        for i in result:
-            print(i) 
+        for r in result:
+            print(r[0],' has a combined price of ',r[1])
 
     def query9(self,crsr,mydb,photoID):
         crsr.execute('''DELETE FROM photo WHERE PhotoID =%s''',(photoID,))
         mydb.commit()
-        print('The photo with PhotoID:'+photoID+' was deleted.')
+        print('The photo with PhotoID: '+photoID+' was deleted.')
 
     def query10(self,crsr,mydb,photoID,name):
         crsr.execute('''UPDATE photo SET PName=%s WHERE PhotoID=%s''',(name,photoID))
         mydb.commit()
-        print('The photo with the PhotoID:'+photoID+' had the photograhper name updated to '+name+'.')
+        print('The photo with the PhotoID '+photoID+' had the photograhper name updated to '+name+'.')
 
     def query11(self,crsr):
         crsr.execute('''SELECT LoginName,SUM(TotalAmount)
@@ -86,8 +91,8 @@ class Photoshop:
         Group BY LoginName
         ''')
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            print('%s has spent %.2f' % (r[0], r[1]))
 
     def query12(self,crsr):
         crsr.execute('''SELECT photo.PName,SUM(transactions.TotalAmount)
@@ -95,8 +100,9 @@ class Photoshop:
         ON photo.TransID = transactions.TransID
         GROUP BY photo.PName''')
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            print('%s has made %.2f' % (r[0], r[1]))
+        #print(result)
 
     def query13(self,crsr):
         landscapequery = '''SELECT SUM(TotalAmount) AS %s
@@ -120,24 +126,25 @@ class Photoshop:
 
         crsr.execute(landscapequery,('landscape TotalAmount',))
         landscape = crsr.fetchall()
-        print(landscape)
+        print('landscape sales are %.2f' % (landscape[0][0]))
 
         crsr.execute(abstractquery,('abstract TotalAmount',))
         abstract = crsr.fetchall()
-        print(abstract)
+        print('abstract sales are %.2f' % (abstract[0][0]))
 
         crsr.execute(portraitquery,('portrait TotalAmount',))
         portrait = crsr.fetchall()
-        print(portrait)
+        print('portrait sales are %.2f' % (portrait[0][0]))
 
     def query14(self,crsr):
         crsr.execute('''SELECT TDate,SUM(TotalAmount) FROM transactions
         GROUP BY TDate
         ORDER BY SUM(TotalAmount) DESC''')
-
         result = crsr.fetchall()
-        for i in result:
-            print(i)
+        for r in result:
+            #print(r[0],' made ',r[1],' in sales.')
+            print('%s made %.2f in sales.' % (r[0], r[1]))
+        #print(result)
 
     def __init__(self):
         mydb = mysql.connector.connect(host='localhost',user='root',passwd='mango05%',database='photoshop')
@@ -172,7 +179,7 @@ class Photoshop:
                 self.query8(crsr)
                 option = input("Enter 1-14 to run the corresponding query. Enter q to quit the program: ")
             elif option == '9':
-                photoID = input('Enter the photoID of the photo to be deleted.')
+                photoID = input('Enter the photoID of the photo to be deleted: ')
                 self.query9(crsr,mydb,photoID)
                 option = input("Enter 1-14 to run the corresponding query. Enter q to quit the program: ")
             elif option == '10':
@@ -192,7 +199,7 @@ class Photoshop:
             elif option == '14':
                 self.query14(crsr)
                 option = input("Enter 1-14 to run the corresponding query. Enter q to quit the program: ")
-            else:
-                print("Query number does not exist. Please enter a number between 1-14.")
-                option = input("Enter 1-14 to run the corresponding query. Enter q to quit the program: ")
+            elif option != 'q':
+                option = input("Invalid Input. Enter 1-14 to run the corresponding query. Enter q to quit the program: ")
+                
 Photoshop()
