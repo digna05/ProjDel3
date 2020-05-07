@@ -66,22 +66,43 @@ VALUES ('82', '25', 'Color Negative', 'f/4.0', 'Color', '3.5 MP', '20.00', '2019
 ('193', '50', 'Color Positive', 'f/5.6', 'B/W', '7.0 MP', '15.00', '2019-11-26', '14', 'Corey Underwood', '1993-01-16'),
 ('48', '160', 'Polaroid', 'f/4.0', '8.0 MP', 'Color', '30.00', '2020-01-13', '15', 'Sierra Vaughn', '1992-08-04');
 
-INSERT INTO location(Country, Place)
-VALUES('US', 'Sacramento CA'), 
-('South Korea', 'Seoul'), 
-('Russia', 'Omsk'), 
-('US', 'San Francisco CA'), 
-('Brazil', 'Fortaleza'),
-('Germany', 'Munich'), 
-('US', 'Corpus Christi TX'),
-('Brazil', 'Belo Horizonte'), 
-('US', 'Seattle WA'), 
-('India', 'Nagpur'),
-('US', 'Jacksonville FL'), 
-('Bangladesh', 'Dhaka'),
-('Mexico', 'Tijuana'),
-('US', 'Atlanta GA'), 
-('US', 'Chicago IL');
+INSERT INTO location(Place, Country)
+VALUES('Sacramento CA', 'US'), 
+('Seoul', 'South Korea'), 
+('Omsk', 'Russia'), 
+('San Francisco CA','US'), 
+('Fortaleza', 'Brazil'),
+('Munich', 'Germany'), 
+('Corpus Christi TX', 'US'),
+('Belo Horizonte', 'Brazil'), 
+('Seattle WA', 'US'), 
+('Nagpur', 'India'),
+('Jacksonville FL', 'US'), 
+('Dhaka','Bangladesh'),
+('Tijuana', 'Mexico'),
+('Atlanta GA', 'US'), 
+('Chicago IL', 'US');
+
+INSERT INTO landscape(PhotoID, Place, Country)
+VALUES ('82', 'Sacramento CA', 'US'),
+('218', 'Sacramento CA', 'US'), 
+('37', 'Omsk', 'Russia'), 
+('231', 'Munich', 'Germany'), 
+('129', 'Fortaleza', 'Brazil'), 
+('20', 'Atlanta GA', 'US'), 
+('189', 'Tijuana', 'Mexico'), 
+('54', 'Chicago IL', 'US'), 
+('121', 'Belo Horizonte', 'Brazil'), 
+('68', 'Dhaka','Bangladesh');
+
+INSERT INTO abstract(PhotoID, PicComment)
+VALUES ('52', 'Dynamic compposition'), 
+('136', 'Balanced'), 
+('75', 'Warm colors'), 
+('193', 'Rough texture'), 
+('48', 'Cool colors');
+
+
 
 
 
