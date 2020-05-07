@@ -108,7 +108,7 @@ CREATE TABLE abstract(
 CREATE TABLE model(
 	MName VARCHAR(20) NOT NULL,
     MBDate DATE NOT NULL,
-    MBio VARCHAR(20),
+    MBio VARCHAR(50),
     MSex VARCHAR(20),
     index(MName),index(MBDate),
     PRIMARY KEY(MName,MBDate)
@@ -118,7 +118,7 @@ CREATE TABLE models(
 	PhotoID INTEGER NOT NULL,
     MName VARCHAR(20) NOT NULL,
     MBDate DATE NOT NULL,
-    Agency VARCHAR(20),
+    Agency VARCHAR(50),
     PRIMARY KEY(PhotoID,MName,MBDate),
     index(PhotoID),index(MName),index(MBDate),
     CONSTRAINT ModelsMName
@@ -136,9 +136,9 @@ CREATE TABLE models(
 )ENGINE=INNODB;
 
 CREATE TABLE influences(
-	EPName VARCHAR(20) NOT NULL,
+	EPName VARCHAR(40) NOT NULL,
     EPBDate DATE NOT NULL,
-    RPName VARCHAR(20) NOT NULL,
+    RPName VARCHAR(40) NOT NULL,
     RPBDate DATE NOT NULL,
     index(EPName),index(EPBDate),index(RPName),index(RPBDate),
     CONSTRAINT EPN
