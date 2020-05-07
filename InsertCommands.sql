@@ -100,7 +100,64 @@ VALUES ('52', 'Dynamic compposition'),
 ('136', 'Balanced'), 
 ('75', 'Warm colors'), 
 ('193', 'Rough texture'), 
-('48', 'Cool colors');
+('48', 'Cool colors'); 
+
+INSERT INTO model(MName, MBDate, MBio, MSex)
+VALUES ('Kathryn Elliot', '1991-01-08', 'Instagram: @elliot08', 'F'),
+('Rebecca Sparks', '1990-12-19', 'Instagram: @sparks19', 'F'),
+('Shaun Graves', '1991-07-10', 'Instagram: @graves10', 'M'),
+('Sylvia Potter', '1992-12-18', 'Instagram: @potter18', 'F'),
+('Alberto Jenkins', '1993-01-21', 'Instagram: @jenkins21', 'M'), 
+('Terry Hamilton', '1993-03-01', 'Instagram: @hamilton01', 'M'), 
+('Edward Barnes', '1993-12-31', 'Instagram: @barnes31', 'M'),
+('Kim Cannon', '1994-01-13', 'Instagram: @cannon13', 'F'),
+('Derrick Brewer', '1994-10-31', 'Instagram: @brewer31', 'M'), 
+('Kristin Drake', '1996-01-30', 'Instagram: @drake30', 'F'),
+('Celia Cruz', '1999-08-09', 'Instagram: @cruz09', 'F'),
+('Terrance Vega', '2001-04-11', 'Instagram: @vega11', 'M'), 
+('Connie Ellis', '2002-02-26', 'Instagram: @ellis26', 'F'), 
+('Darryl Wilson', '1995-02-14', 'Instagram: @wilson14', 'M'), 
+('Lucia Howard', '1997-11-12', 'Instagram: @howard12', 'F');
+
+INSERT INTO models(PhotoID, MName, MBDate, Agency)
+VALUES('82', 'Kathryn Elliot', '1991-01-08', 'Pictures to Treasure'), 
+('218', 'Rebecca Sparks', '1990-12-19', 'Your Life in Our Lens'), 
+('37', 'Shaun Graves', '1991-07-10', 'Snap Into Action'), 
+('231', 'Sylvia Potter', '1992-12-18', 'Lens Trends'), 
+('129', 'Alberto Jenkins', '1993-01-21', 'Shutter Magic'), 
+('20', 'Terry Hamilton', '1993-03-01', 'Pictures to Treasure' ), 
+('189', 'Edward Barnes', '1993-12-31', 'Perfect Captures'), 
+('54', 'Kim Cannon', '1994-01-13', 'Your Life in Our Lens'), 
+('121', 'Derrick Brewer', '1994-10-31', 'Shutter Magic'), 
+('68', 'Kristin Drake', '1996-01-30', 'Your Life in Our Lens'), 
+('52', 'Celia Cruz', '1999-08-09', 'Shutter Magic'), 
+('136', 'Terrance Vega', '2001-04-11', 'Pictures to Treasure'), 
+('75', 'Connie Ellis', '2002-02-26', 'Snap Into Action'), 
+('193', 'Darryl Wilson', '1995-02-14', 'Lens Trends'), 
+('48', 'Lucia Howard', '1997-11-12', 'Your Life in Our Lens');
+
+INSERT INTO influences(EPName, EPBDate, RPName, RPBDate)
+VALUES('Amelia Kemp', '1991-01-02', 'Jordan Almasi', '1995-04-25'), 
+('Kadie Pugh', '1996-03-18', 'Lisa Gonzalez', '1992-04-13'),
+('Anna Prentice', '1992-11-27', 'Salvatore Terry', '1990-06-17'),
+('Edgar Tran', '1993-06-05', 'Corey Underwood', '1993-01-16'), 
+('Matt Gill', '1992-07-01', 'Lisa Gonzalez', '1992-04-13'),
+('Darla Pena', '1995-04-13', 'Sierra Vaughn', '1992-08-04'),
+('Jerald Graham', '1990-06-21', 'Corey Underwood', '1993-01-16'), 
+('Rohan Mathis', '1994-05-11', 'Jordan Almasi', '1995-04-25'), 
+('Sara Chambers', '1996-11-24', 'Salvatore Terry', '1990-06-17'),
+('Nelson Hunter', '1991-07-30', 'Jordan Almasi', '1995-04-25');
+
+
+
+
+
+
+
+
+
+
+
 
 
 
