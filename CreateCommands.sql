@@ -67,8 +67,8 @@ CREATE TABLE photo (
 )  ENGINE=INNODB;
     
 CREATE TABLE location(
-	Country VARCHAR(20),
-    Place VARCHAR(20),
+	Place VARCHAR(20),
+    Country VARCHAR(20),
     Description VARCHAR(20),
     PRIMARY KEY (Place,Country),
     index (Place),
