@@ -64,7 +64,17 @@ VALUES ('82', '25', 'Color Negative', 'f/4.0', 'Color', '3.5 MP', '20.00', '2019
 ('136', '25', 'Black and White', 'f/16.0', 'Color', '7.0 MP', '20.00', '2019-10-10', '12', 'Lisa Gonzalez', '1992-04-13'), 
 ('75', '400', 'Color Negative', 'f/11.0', 'Color', '5.5 MP', '35.00', '2019-10-18', '13', 'Salvatore Terry', '1990-06-17'), 
 ('193', '50', 'Color Positive', 'f/5.6', 'B/W', '7.0 MP', '15.00', '2019-11-26', '14', 'Corey Underwood', '1993-01-16'),
-('48', '160', 'Polaroid', 'f/4.0', '8.0 MP', 'Color', '30.00', '2020-01-13', '15', 'Sierra Vaughn', '1992-08-04');
+('48', '160', 'Polaroid', 'f/4.0', '8.0 MP', 'Color', '30.00', '2020-01-13', '15', 'Sierra Vaughn', '1992-08-04'),
+('141', '50' , 'Color Positive', 'f/1.4', '2.5 MP', 'Color', '15.00', '2019-06-08', '1', 'Darla Pena', '1995-04-13' ),
+('67', '64', 'Black and White', 'f/2.0', '3.0 MP', 'Color', '20.00', '2019-08-14', '3', 'Rohan Mathis', '1994-05-11' ),
+('70', '100', 'Color Negative', 'f/4.0', '3.5 MP', 'B/W', '25.00', '2019-09-02', '10','Salvatore Terry', '1990-06-17' ), 
+('292', '160', 'Polaroid', 'f/4.0', '5.0 MP', 'Color', '30.00', '2019-10-21', '6', 'Jerald Graham', '1990-06-21' ), 
+('288', '200', 'Color Negative', 'f/5.6', '6.5 MP', 'Color', '35.00', '2019-12-31', '10','Edgar Tran', '1993-06-05'),
+('181', '400', 'Polaroid', 'f/11.0', '8.0 MP', 'B/W', '40.00', '2020-01-13', '7', 'Jordan Almasi', '1995-04-25'),
+('205', '800',  'Color Positive', 'f/4.0', '9.5 MP', 'Color', '55.00', '2020-01-14', '3', 'Kadie Pugh', '1996-03-18'),
+('25', '50', 'Color Negative', 'f/2.0', '4.0 MP', 'B/W', '20.00', '2020-02-03', '4', 'Corey Underwood', '1993-01-16'),
+('143', '160', 'Polaroid', 'f/11.0', '5.5 MP', 'B/W', '35.00', '2020-03-12', '14', 'Sierra Vaughn', '1992-08-04' ),
+('103', '200',  'Color Positive', 'f/16.0', '7.0 MP', 'Color', '40.00', '2020-03-29', '3', 'Nelson Hunter', '1991-07-30');
 
 INSERT INTO location(Place, Country)
 VALUES('Sacramento CA', 'US'), 
@@ -120,21 +130,16 @@ VALUES ('Kathryn Elliot', '1991-01-08', 'Instagram: @elliot08', 'F'),
 ('Lucia Howard', '1997-11-12', 'Instagram: @howard12', 'F');
 
 INSERT INTO models(PhotoID, MName, MBDate, Agency)
-VALUES('82', 'Kathryn Elliot', '1991-01-08', 'Pictures to Treasure'), 
-('218', 'Rebecca Sparks', '1990-12-19', 'Your Life in Our Lens'), 
-('37', 'Shaun Graves', '1991-07-10', 'Snap Into Action'), 
-('231', 'Sylvia Potter', '1992-12-18', 'Lens Trends'), 
-('129', 'Alberto Jenkins', '1993-01-21', 'Shutter Magic'), 
-('20', 'Terry Hamilton', '1993-03-01', 'Pictures to Treasure' ), 
-('189', 'Edward Barnes', '1993-12-31', 'Perfect Captures'), 
-('54', 'Kim Cannon', '1994-01-13', 'Your Life in Our Lens'), 
-('121', 'Derrick Brewer', '1994-10-31', 'Shutter Magic'), 
-('68', 'Kristin Drake', '1996-01-30', 'Your Life in Our Lens'), 
-('52', 'Celia Cruz', '1999-08-09', 'Shutter Magic'), 
-('136', 'Terrance Vega', '2001-04-11', 'Pictures to Treasure'), 
-('75', 'Connie Ellis', '2002-02-26', 'Snap Into Action'), 
-('193', 'Darryl Wilson', '1995-02-14', 'Lens Trends'), 
-('48', 'Lucia Howard', '1997-11-12', 'Your Life in Our Lens');
+VALUES('141', 'Kathryn Elliot', '1991-01-08', 'Pictures to Treasure'), 
+('67', 'Rebecca Sparks', '1990-12-19', 'Your Life in Our Lens'), 
+('70', 'Shaun Graves', '1991-07-10', 'Snap Into Action'), 
+('292', 'Sylvia Potter', '1992-12-18', 'Lens Trends'), 
+('288', 'Alberto Jenkins', '1993-01-21', 'Shutter Magic'), 
+('181', 'Terry Hamilton', '1993-03-01', 'Pictures to Treasure' ), 
+('205', 'Edward Barnes', '1993-12-31', 'Perfect Captures'), 
+('25', 'Kim Cannon', '1994-01-13', 'Your Life in Our Lens'), 
+('143', 'Derrick Brewer', '1994-10-31', 'Shutter Magic'), 
+('103', 'Kristin Drake', '1996-01-30', 'Your Life in Our Lens');
 
 INSERT INTO influences(EPName, EPBDate, RPName, RPBDate)
 VALUES('Amelia Kemp', '1991-01-02', 'Jordan Almasi', '1995-04-25'), 
